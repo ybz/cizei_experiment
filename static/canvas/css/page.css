@@ -1,0 +1,17 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+html {
+    background-color: #eeeeea;
+    color: #111114;
+    font-family: serif;
+    font-size: 16px;
+    text-align: center;
+}
+#main_canvas {
+    border-color: #fff;
+    border-style: solid;
+    border-width: 1px;
+    margin-top: 80px;
+}

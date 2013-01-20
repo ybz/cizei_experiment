@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ 'canvas/css/page.css' | static }}">
+<script type="text/javascript" src="{{ 'canvas/js/exp.js' | static }}"></script>
+{% endblock %}
+
+{% block title %}Canvas experiment{% endblock %}
+
+{% block body %}
+{{ super() }}
+<canvas id="main_canvas" width="600" height="360"></canvas>
+{% endblock %}
