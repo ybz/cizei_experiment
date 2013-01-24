@@ -3,7 +3,7 @@ console.log("-- exp loaded --");
 window.onload = function() {
     window.exp.initCanvas();
     var ctx = exp.ctx;
-    exp.draw_funcs.arc_2(ctx);
+    exp.draw_funcs.rect_path(ctx);
 };
 
 window.exp = {
@@ -88,6 +88,34 @@ window.exp = {
                     }
                 }
             }
+        },
+        "curve_quad" : function(ctx) {
+            ctx.beginPath();
+            ctx.moveTo(75,25);
+            ctx.quadraticCurveTo(25, 25, 25, 62.5);
+            ctx.quadraticCurveTo(25, 100, 50, 100);
+            ctx.quadraticCurveTo(50, 120, 30, 125);
+            ctx.quadraticCurveTo(60, 120, 65, 100);
+            ctx.quadraticCurveTo(125, 100, 125, 62.5);
+            ctx.quadraticCurveTo(125, 25, 75, 25);
+            ctx.stroke();
+        },
+        "curve_bez" : function(ctx) {
+            ctx.beginPath();
+            ctx.moveTo(75, 40);
+            ctx.bezierCurveTo(75, 37, 70, 25, 50, 25);
+            ctx.bezierCurveTo(20, 25, 20, 62.5, 20, 62.5);
+            ctx.bezierCurveTo(20, 80, 40, 102, 75, 120);
+            ctx.bezierCurveTo(110, 102, 130, 80, 130, 62.5);
+            ctx.bezierCurveTo(130, 62.5, 130, 25, 100, 25);
+            ctx.bezierCurveTo(85, 25, 75, 37, 75, 40);
+            ctx.fill();
+        },
+        "rect_path" : function(ctx) {
+            ctx.beginPath();
+            ctx.rect(100,100, 130, 180);
+            ctx.lineTo(150, 190);
+            ctx.stroke();
         }
     }
 }
