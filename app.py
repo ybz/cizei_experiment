@@ -17,6 +17,10 @@ def index():
 def canvas():
     return render_template('canvas/basic_shapes.html')
 
+@app.route('/canvas/images')
+def canvas():
+    return render_template('canvas/images.html')
+
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000
     port = int(os.environ.get('PORT', 5000))
