@@ -11,11 +11,11 @@ app.jinja_env.filters['static'] = lambda name: url_for('static', filename=name)
 
 @app.route('/')
 def index():
-    return 'Welcome'
+    return render_template('index.html')
 
-@app.route('/canvas')
+@app.route('/canvas/basic_shapes')
 def canvas():
-    return render_template('canvas.html')
+    return render_template('canvas/basic_shapes.html')
 
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000
