@@ -1,7 +1,7 @@
 window.onload = function() {
     window.exp.initCanvas();
     var ctx = exp.ctx;
-    exp.draw_funcs.image1(ctx);
+    exp.draw_funcs.image_scale(ctx);
 };
 
 window.exp = {
@@ -11,11 +11,22 @@ window.exp = {
         this.ctx = canvas.getContext('2d');
     },
     draw_funcs : {
-        "image1" : function(ctx) {
+        "image_scale" : function(ctx) {
+            var frames = 0;
+            var scale = 1;
+            var interval;
+            var draw = function() {
+                console.log(interval);
+                if (frames>100) {clearInterval(interval)};
+                ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+                ctx.drawImage(img, 0, 0, img.width * scale, img.height * scale);
+                scale *= 0.99;
+                frames++;
+            };
             var img = new Image();
             img.src = '/static/canvas/img/book.jpg';
             img.onload = function() {
-                ctx.drawImage(img, 40, 40);
+                interval = setInterval(draw, 20);
             };
         }
     }
