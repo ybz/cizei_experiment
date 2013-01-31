@@ -1,7 +1,8 @@
 import os
 
-from flask import Flask, render_template, url_for
+from flask import Flask, url_for
 from flask_sqlalchemy import SQLAlchemy
+from views import init_views
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
@@ -9,21 +10,9 @@ db = SQLAlchemy(app)
 
 app.jinja_env.filters['static'] = lambda name: url_for('static', filename=name)
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+init_views(app)
 
-@app.route('/canvas/basic_shapes')
-def c_basic_shapes():
-    return render_template('canvas/basic_shapes.html')
-
-@app.route('/canvas/images')
-def c_images():
-    return render_template('canvas/images.html')
-
-@app.route('/processing/test')
-def ps_test():
-    return render_template('processing_js/test.html')
+app.debug = True
 
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000
