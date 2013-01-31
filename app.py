@@ -14,12 +14,16 @@ def index():
     return render_template('index.html')
 
 @app.route('/canvas/basic_shapes')
-def canvas():
+def c_basic_shapes():
     return render_template('canvas/basic_shapes.html')
 
 @app.route('/canvas/images')
-def canvas():
+def c_images():
     return render_template('canvas/images.html')
+
+@app.route('/processing/test')
+def ps_test():
+    return render_template('processing_js/test.html')
 
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000

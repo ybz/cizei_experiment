@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ 'processing_js/css/page.css' | static }}">
+<script type="text/javascript" src="{{ 'processing_js/js/processing-1.4.1.js' | static }}"></script>
+<script type="text/javascript" src="{{ 'processing_js/js/test.js' | static }}"></script>
+{% endblock %}
+
+{% block title %}Test{% endblock %}
+
+{% block body %}
+{{ super() }}
+{% endblock %}
