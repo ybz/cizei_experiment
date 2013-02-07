@@ -13,25 +13,22 @@ def init_views(app):
         pages = []
         for filename in files_list:
             name = os.path.splitext(filename)[0]
-            url  = url_for('canvas_page', page_name = name)
+            url  = url_for('js_page', app_name='canvas', page_name=name)
             pages.append({ 'name': name, 'url': url})
         return render_template('canvas/index.html', pages=pages)
 
-    @app.route('/canvas/<page_name>')
-    def canvas_page(page_name):
+    @app.route('/<app_name>/<page_name>')
+    def js_page(app_name, page_name):
+        if not app_name in ['canvas', 'processing']:
+            abort(404)
         js_filename = "%s%sjs" %(page_name, os.path.extsep)
-        js_path = os.path.join("canvas", "js", js_filename)
+        js_path = os.path.join(app_name, "js", js_filename)
         page_exists = os.path.exists(os.path.join(app.static_folder, js_path))
         template_context = {
             'page_name' : page_name,
             'js_file_src' : url_for('static', filename=js_path)
         }
         if page_exists:
-            return render_template('canvas/general.html', **template_context)
+            return render_template('%s/js_page.html' %(app_name), **template_context)
         else:
             abort(404)
-
-    @app.route('/processing/test')
-    def ps_test():
-        return render_template('processing_js/test.html')
-
