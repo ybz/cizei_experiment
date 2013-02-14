@@ -1,5 +1,6 @@
 window.onload = function() {
     var canvas = document.getElementById('main_canvas');
+    canvas.style.cursor = "crosshair";
     var processingInstance = new Processing(canvas);
     window.p = processingInstance;
 
