@@ -1,0 +1,22 @@
+html, body {
+    padding: 0;
+    margin: 0;
+}
+html {
+    background-color: #FAFAF4; 
+}
+h1 {
+    color: #463E08;
+    font-family: 'Crimson Text', serif;
+    font-weight: 600;
+    font-size: 50px;
+    font-style: italic;
+    text-shadow: 0 0 10px #F1C8B9;
+    margin: 0 auto;
+    padding: 140px 0 0 0;
+    width: 500px;
+    text-align: center;
+}
+h1 .quot {
+    color: #DAD1B6;
+}
