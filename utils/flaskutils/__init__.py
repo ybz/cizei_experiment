@@ -102,12 +102,26 @@ def install_request_logger(app, single_threaded, logger, *unlogged_prefixes):
         g.queries += 1
     return query_count_increment
 
-def route_static_path(app, route_base_path, static_relative_path, endpoint=None):
+def list_files_for_index(start_path):
+    file_list = []
+    for r,d,f in os.walk(start_path):
+        for f_name in f:
+            if f_name.endswith(".html"):
+                 file_path = os.path.join(r,f_name)
+                 file_path = '.' + file_path.replace(start_path, '',1)
+                 file_list.append(file_path)
+    return file_list
+
+def route_static_path(app, route_base_path, static_relative_path, endpoint=None, index_view_func=None):
     if not endpoint:
         endpoint = route_base_path.rstrip('/').split('/')[-1]
+    dir_name = os.path.join(app.static_folder, static_relative_path)
     def view_func(filename):
-        dir_name = os.path.join(app.static_folder, static_relative_path)
         safe_join(dir_name, filename)
-        print app.static_folder, route_base_path, dir_name
         return send_from_directory(dir_name, filename)
     app.add_url_rule(route_base_path.rstrip('/') + '/<path:filename>', endpoint, view_func)
+    if index_view_func:
+        def outer():
+            file_list = list_files_for_index(dir_name)
+            return index_view_func(file_list)
+        app.add_url_rule(route_base_path.rstrip('/') + '/', endpoint+'.index', outer)
