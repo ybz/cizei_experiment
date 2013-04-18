@@ -4,7 +4,7 @@ import json
 import logging
 import os
 
-from flask import current_app, request, g, session
+from flask import current_app, request, g, session, safe_join, send_from_directory
 from werkzeug.exceptions import HTTPException
 from webassets.filter import Filter
 
@@ -101,3 +101,13 @@ def install_request_logger(app, single_threaded, logger, *unlogged_prefixes):
     def query_count_increment(*a):
         g.queries += 1
     return query_count_increment
+
+def route_static_path(app, route_base_path, static_relative_path, endpoint=None):
+    if not endpoint:
+        endpoint = route_base_path.rstrip('/').split('/')[-1]
+    def view_func(filename):
+        dir_name = os.path.join(app.static_folder, static_relative_path)
+        safe_join(dir_name, filename)
+        print app.static_folder, route_base_path, dir_name
+        return send_from_directory(dir_name, filename)
+    app.add_url_rule(route_base_path.rstrip('/') + '/<path:filename>', endpoint, view_func)
