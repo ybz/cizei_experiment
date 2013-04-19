@@ -103,14 +103,17 @@ def install_request_logger(app, single_threaded, logger, *unlogged_prefixes):
     return query_count_increment
 
 def list_files_for_index(start_path):
-    file_list = []
+    ret = []
     for r,d,f in os.walk(start_path):
+        dir_list = []
         for f_name in f:
             if f_name.endswith(".html"):
                  file_path = os.path.join(r,f_name)
                  file_path = '.' + file_path.replace(start_path, '',1)
-                 file_list.append(file_path)
-    return file_list
+                 dir_list.append(file_path)
+        if len(dir_list):
+            ret.append(dir_list)
+    return ret
 
 def route_static_path(app, route_base_path, static_relative_path, endpoint=None, index_view_func=None):
     if not endpoint:
