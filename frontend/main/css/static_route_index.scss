@@ -1,0 +1,29 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Buenard', serif;
+    font-size: 16px;
+    color: #4B3929; 
+}
+.page_top {
+    padding: 20px 0 0 50px;
+    font-size: 2em;
+    font-weight: 700;
+}
+.links {
+    padding-left: 50px;
+    font-weight: 400;
+    font-size: 1em;
+}
+.group {
+    margin: 20px 0 0 0;
+    a {
+        text-decoration: none;
+        color: #4B3929; 
+        &:visited, &:hover {
+            color: #BF4B31; 
+        }
+    }
+}

@@ -26,9 +26,7 @@ class Special(str): pass
 class Depends(Special): pass
 
 asset_spec = {
-    "todo.js": ('todo/jst/*.jst', 'todo/TodoModel.coffee', 'todo/TodoCollection.coffee', 'todo/TodoView.coffee',
-                'todo/Router.coffee', 'todo/AppView.coffee', 'todo/app.coffee',),
-    "todo.css": ('todo/css/*.css',),
+    "static_route_index.css": ('main/css/static_route_index.scss',),
 }
 
 def get_rules(kind):
