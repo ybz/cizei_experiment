@@ -113,6 +113,7 @@ def list_files_for_index(start_path):
                  dir_list.append(file_path)
         if len(dir_list):
             ret.append(dir_list)
+    ret.sort(key = lambda item: item[0])
     return ret
 
 def route_static_path(app, route_base_path, static_relative_path, endpoint=None, index_view_func=None):
