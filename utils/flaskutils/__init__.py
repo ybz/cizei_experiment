@@ -112,6 +112,7 @@ def list_files_for_index(start_path):
                  file_path = '.' + file_path.replace(start_path, '',1)
                  dir_list.append(file_path)
         if len(dir_list):
+            dir_list.sort()
             ret.append(dir_list)
     ret.sort(key = lambda item: item[0])
     return ret
