@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+root="$( cd "$( dirname -- "$0" )" && pwd )"
+
+echo "---->> running post compile"
+pwd
+cd $root
+pwd
+cd ..
+pwd
+
+echo "       patching path"
+old_path=$PATH
+PATH=/app/vendor/ruby-1.9.2/bin:/app/bin:/app/vendor/bundle/ruby/1.9.1/bin:/app/vendor/bundle/bin:/app/.heroku/python/bin:/app/bin:/app/node_modules/.bin:/usr/local/bin:/usr/bin:/bin
+export GEM_PATH=/app/vendor/bundle/ruby/1.9.1:
+export GEM_HOME=/app/vendor/bundle/ruby/1.9.1:
+
+echo "---->> trying to run grunt"
+./node_modules/.bin/grunt heroku
+
+echo "       path returned to previous value"
+
+PATH=$old_path
+
+echo

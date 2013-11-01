@@ -46,3 +46,5 @@ module.exports = (grunt) ->
         'coffee:dev',
         'compass:dev',
     ]
+
+    grunt.registerTask 'heroku', 'Build heroku dist', ['build:dev']
