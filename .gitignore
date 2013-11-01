@@ -1,0 +1,6 @@
+.venv
+*.pyc
+*.DS_store
+*.swp
+node_modules
+static/gen
