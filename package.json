@@ -1,0 +1,11 @@
+{
+    "name" : "cizei-experiment",
+    "version" : "0.0.1",
+    "dependencies" : {
+        "coffee-script" : "1.6.x"
+    },
+    "engines" : {
+        "node" : "0.10.x",
+        "npm": "1.3.x"
+    }
+}
