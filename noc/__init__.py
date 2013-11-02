@@ -1,16 +1,14 @@
 import os
 from flask import Blueprint, render_template
 
-def list_files_for_index(start_path, prefix=''):
+def list_files_for_index(start_path, prefix='.'):
     ret = []
     for r,d,f in os.walk(start_path):
         dir_list = []
         for f_name in f:
             if f_name.endswith(".html"):
                  file_path = os.path.join(r,f_name)
-                 file_path = '.' + file_path.replace(start_path, '',1)
-                 if prefix:
-                     file_path = prefix + file_path
+                 file_path = prefix + file_path.replace(start_path, '',1)
                  dir_list.append(file_path)
         if len(dir_list):
             dir_list.sort()
@@ -20,7 +18,7 @@ def list_files_for_index(start_path, prefix=''):
 
 noc_bp = Blueprint('noc_bp', __name__, static_folder='files', template_folder='templates')
 
-file_list = list_files_for_index(noc_bp.static_folder, prefix='files/')
+file_list = list_files_for_index(noc_bp.static_folder, prefix='files')
 
 @noc_bp.route('/')
 def index():

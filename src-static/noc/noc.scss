@@ -1,0 +1,31 @@
+html {
+    body {
+        padding: 20px 0 0 20px;
+    }
+    font-size: 16px;
+    font-family: 'Archivo Narrow', serif;
+    .page_top {
+        color: #5B7251; 
+        font-size: 1.3em;
+        font-weight: 700;
+    }
+
+    .links {
+        margin-top: 10px;
+        line-height: 130%;
+
+        a {
+            color: #7C4C05;
+            text-decoration: none;
+        }
+        a:visited {
+            color: #7A7266;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .group {
+            margin-top: 18px;
+        }
+    }
+}
