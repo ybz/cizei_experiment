@@ -2,10 +2,13 @@
 
 {% block head %}
     {{ super() }}
+    <link href='http://fonts.googleapis.com/css?family=Share+Tech' rel='stylesheet' type='text/css'>
     <link type='text/css' rel='stylesheet' href="{{ 'index.css' | static }}"/>
 {% endblock %}
 
 
 {% block body %}
-    index hello
+    {{ super() -}}
+    <div class="vertical_aligner"></div>{#
+    #}<h1><span class="quot">&ldquo;</span>index is where the heart is<span class="quot">&#8222;</span></hi>
 {% endblock %}
