@@ -1,0 +1,27 @@
+{% extends "main.html" %}
+
+{% block title %}List{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <link href='http://fonts.googleapis.com/css?family=Buenard' rel='stylesheet' type='text/css'>
+{% endblock %}
+
+{% block body -%}
+{{ super() }}
+
+    <div class="page_top">{% block page_top %}{%- endblock %}</div>
+
+    {% block links %}
+    <div class="links">
+        {% for group in file_list %}
+            <div class="group">
+                {% for file_name in group %}
+                <div><a class="item" href="{{ file_name }}">{{ file_name }}</a></div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+    {%- endblock %}
+
+{%- endblock %}
