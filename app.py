@@ -8,8 +8,10 @@ def init_app():
 
     app = Flask(__name__)
     app.config['DEBUG'] = bool(int(os.environ.get('DEBUG', 0)))
-    app.config['IS_DIST'] = bool(int(os.environ.get('IS_DIST', 0)))
 
+    import utils; utils
     import views; views
+    from utils import jinja_utils
+    jinja_utils.init_jinja_env()
 
     return app
