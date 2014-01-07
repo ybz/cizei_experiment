@@ -1,1 +1,1 @@
-static/vendor/**/* -diff
+src-static/vendor/**/* -diff
