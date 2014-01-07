@@ -8,3 +8,7 @@ def favicon():
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/ember_todo')
+def ember_todo():
+    return render_template('ember_todo.html')
