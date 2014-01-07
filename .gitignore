@@ -6,3 +6,4 @@ node_modules
 static/gen
 static
 .sass-cache
+.bundle
