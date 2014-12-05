@@ -1,0 +1,37 @@
+html, body {
+    height: 100%;
+}
+
+html {
+    background: #473f39;
+    font-family: 'Lobster', cursive;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.vertical-aligner {
+    height: 100%;
+}
+.vertical-aligner,
+.days-count {
+    display: inline-block;
+    vertical-align: middle;
+}
+.days-count {
+    color: #F0E6D9;
+    text-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+    font-size: 140px;
+}
+
+@media (min-width: 400px) and (min-height: 400px) {
+    .days-count {
+        font-size: 180px;
+    }
+}
+
+@media (min-width: 600px) and (min-height: 600px) {
+    .days-count {
+        font-size: 260px;
+    }
+}
+
