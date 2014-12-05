@@ -33,6 +33,7 @@ module.exports = (grunt) ->
                     specify: [
                         '<%= src_static_folder %>/index.scss',
                         '<%= src_static_folder %>/noc/noc.scss',
+                        '<%= src_static_folder %>/nov_timer.scss',
                     ]
                     sassDir: '<%= src_static_folder %>/'
                     cssDir: '<%= target_static_folder %>/'
