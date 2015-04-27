@@ -12,5 +12,5 @@ def index():
 
 @app.route('/timer/')
 def nov_timer():
-    days_count = (datetime.now() - datetime(2014, 11, 1)).days + 1
+    days_count = (datetime.now() - datetime(2015, 2, 17)).days + 1
     return render_template('nov_timer.html', days_count=days_count)
